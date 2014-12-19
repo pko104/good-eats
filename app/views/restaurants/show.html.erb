@@ -1,0 +1,27 @@
+<% if flash.any? %>
+  <div class="flash">
+    <div class="container">
+      <li>
+        <%= flash[:notice]%>
+      </li>
+    </div>
+  </div>
+<% end %>
+
+<h1><%=@restaurant.name%></h1>
+<%=link_to "Make a review", new_restaurant_review_path(restaurant_id: params[:id])%>
+<div>&nbsp;</div>
+<body>
+<%=@restaurant.description%>
+    <%if @reviews%>
+      <%@reviews.each do |a|%>
+      <div>&nbsp;</div>
+      <div><%=a.message%></div>
+      <li><%="Rating: "%><%=a.rating%><%=" stars" %></li>
+      <div><%=a.created_at%></div>
+      <%end%>
+    <%end%>
+  <div>&nbsp;</div>
+    <%=link_to "Go Back", restaurants_path%>
+  <div>&nbsp;</div>
+</body>

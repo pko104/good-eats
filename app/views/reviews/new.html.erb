@@ -1,0 +1,28 @@
+<% if flash.any? %>
+  <div class="flash">
+    <div class="container">
+      <li>
+        <%= flash[:notice]%>
+      </li>
+    </div>
+  </div>
+<% end %>
+
+<div>&nbsp;</div>
+  <%= form_for [@restaurant, @reviews] do |z| %>
+    <div>
+      <%= z.label :message%>
+      <div>&nbsp;</div>
+      <%= z.text_area :message, :size=> "20x10"%>
+    </div>
+     <div>
+      <%= z.label :rating%>
+      <%= z.select :rating, [['1 star',1],['2 star',2],['3 star',3],['4 star',4],['5 star',5]]%>
+    </div>
+    <div>
+      <%= z.submit  "Submit"%>
+    <div>
+  <%end%>
+</br>
+
+<%=link_to "Go Back", restaurant_path(id: @restaurant.id)%>

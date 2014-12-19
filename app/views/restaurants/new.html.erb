@@ -1,0 +1,56 @@
+<h1><%= "Add your restaurant" %></h1>
+
+<% if flash.any? %>
+  <div class="flash">
+    <div class="container">
+      <%flash[:notice].each do |f|%>
+      <li>
+        <%=f%>
+      <%end%>
+      </li>
+    </div>
+  </div>
+<% end %>
+
+<br>
+  <%= form_for @restaurants do |f| %>
+    <div>
+      <%= f. label :name%>
+      <br>
+        <%= f. text_field :name%>
+    </div>
+    <div>
+      <%= f. label :address%>
+      <br>
+        <%= f. text_field :address%>
+    </div>
+    <div>
+      <%= f. label :city%>
+      <br>
+        <%= f. text_field :city%>
+    </div>
+    <div>
+      <%= f. label :state %>
+      <br>
+        <%= f. text_field :state%>
+    </div>
+    <div>
+      <%= f. label :zipcode %>
+      <br>
+        <%= f. text_field :zipcode%>
+    </div>
+    <div>
+      <%= f. label :description %>
+      <br>
+        <%= f. text_area :description, size: "40x10" %>
+    </div>
+     <div>
+      <%= f. label :category %>
+      <br>
+        <%= f. text_field :category%>
+    </div>
+    <div>
+      <%= f.submit  "Submit"%>
+    <div>
+  <%end%>
+</br>
